@@ -2,3 +2,35 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+<<<<<<< HEAD
+a.nav-link{
+  color:white;
+}
+body.main{
+  background-image: url("/images/rob-bye-18274-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: 99.999999999999%;
+  
+}
+footer{
+  text-align: center;
+  background-color: rgb(46,51,56);
+  color:white;
+  position:absolute;
+   bottom:0;
+   width:100%;
+}
+
+#overallContain{
+  width:960px;
+  
+}
+
+.jumbotron{
+  margin-top: 30px;
+  opacity:.95;
+  text-align: center
+}
+
+=======
+>>>>>>> d0feba5f98a94f0ef748f9e4de3663c5e52b72e3
