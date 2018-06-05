@@ -10,7 +10,7 @@ $(document).ready(function() {
     event.preventDefault();
     var userData = {
       email: emailInput.val().trim(),
-      password: passwordInput.val().trim(),
+      passrd: passwordInput.val().trim(),
       username: usernameInput.val().trim()
     };
 
