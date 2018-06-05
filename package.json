@@ -16,7 +16,10 @@
     "express": "^4.14.0",
     "express-session": "^1.14.2",
     "mysql2": "^1.3.6",
+<<<<<<< HEAD
     "nodemon": "^1.17.5",
+=======
+>>>>>>> d0feba5f98a94f0ef748f9e4de3663c5e52b72e3
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "sequelize": "^4.3.1"
