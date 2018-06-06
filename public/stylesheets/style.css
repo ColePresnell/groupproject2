@@ -68,3 +68,7 @@ footer{
 form{
   border-radius: 20px
 }
+
+#footerText {
+  padding:5px;
+}
