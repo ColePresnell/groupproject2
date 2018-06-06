@@ -1,11 +1,12 @@
 form.signup,
 form.login {
   margin-top: 50px;
+  border-radius: 20px;
 }
 a.nav-link{
   color:white;
 }
-body.main{
+body{
   background-image: url("/images/rob-bye-18274-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: 99.999999999999%;
@@ -31,3 +32,43 @@ footer{
   text-align: center
 }
 
+#loginPage {
+  width:960px;
+  
+}
+.col-md-6 {
+  margin:auto;
+}
+
+/* body{
+
+  background-image: url("/images/20180605-field2.jpg");
+  background-repeat: no-repeat;
+  background-size: 99.999999999999%;
+  
+} */
+
+.login{
+  background-color: white;
+  padding:30px;
+}
+
+/* body.signupBody{
+  background-image: url("/images/20180605-field2.jpg");
+  background-repeat: no-repeat;
+  background-size: 99.999999999999%;
+  
+} */
+
+.signup{
+  background-color: white;
+  padding:30px;
+}
+
+form{
+  border-radius: 20px
+}
+
+#footerText {
+  padding:5px;
+}
