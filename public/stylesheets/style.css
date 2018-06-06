@@ -6,7 +6,7 @@ form.login {
 a.nav-link{
   color:white;
 }
-body.main{
+body{
   background-image: url("/images/rob-bye-18274-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: 99.999999999999%;
@@ -40,26 +40,31 @@ footer{
   margin:auto;
 }
 
-body.loginBody{
+/* body{
 
   background-image: url("/images/20180605-field2.jpg");
   background-repeat: no-repeat;
   background-size: 99.999999999999%;
   
-}
+} */
+
 .login{
   background-color: white;
   padding:30px;
 }
 
-body.signupBody{
+/* body.signupBody{
   background-image: url("/images/20180605-field2.jpg");
   background-repeat: no-repeat;
   background-size: 99.999999999999%;
   
-}
+} */
 
 .signup{
   background-color: white;
   padding:30px;
+}
+
+form{
+  border-radius: 20px
 }
