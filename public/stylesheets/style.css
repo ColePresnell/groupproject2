@@ -1,6 +1,7 @@
 form.signup,
 form.login {
   margin-top: 50px;
+  border-radius: 20px;
 }
 a.nav-link{
   color:white;
@@ -31,3 +32,34 @@ footer{
   text-align: center
 }
 
+#loginPage {
+  width:960px;
+  
+}
+.col-md-6 {
+  margin:auto;
+}
+
+body.loginBody{
+
+  background-image: url("/images/20180605-field2.jpg");
+  background-repeat: no-repeat;
+  background-size: 99.999999999999%;
+  
+}
+.login{
+  background-color: white;
+  padding:30px;
+}
+
+body.signupBody{
+  background-image: url("/images/20180605-field2.jpg");
+  background-repeat: no-repeat;
+  background-size: 99.999999999999%;
+  
+}
+
+.signup{
+  background-color: white;
+  padding:30px;
+}
