@@ -3,6 +3,8 @@ var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function(app) {
+
+  var sequelize = require("sequelize");
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -31,14 +33,6 @@ module.exports = function(app) {
     });
   });
 
-// test for creating table to sql
-  app.post("/api/leaderboard", function(req, res) {
-    console.log(req.body);
-    db.Results.create({
-      username: req.body.username,
-      score: req.body.score 
-    });
-  });
 
   // Route for logging user out
   app.get("/logout", function(req, res) {
@@ -61,5 +55,17 @@ module.exports = function(app) {
       });
     }
   });
+
+  app.get("/api/leaderboard", function(req, res) {
+    db.Results.findAll({
+      order: [["score", "DESC"]]
+    }).then(function(data) {
+      console.log(data);
+      res.json(data);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+    })
+  })
 
 };
