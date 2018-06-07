@@ -5,7 +5,9 @@ $(document).ready(function () {
     var pathname = window.location.pathname;
     var splittingPathname = pathname.split("/");
     var game_id = splittingPathname[2];
-
+    //----
+    var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    //-----
     var query = "http://api.sportradar.us/mlb/trial/v6.5/en/games/" + game_id + "/boxscore.json?api_key=" + apikey;
 
     var home;
@@ -15,7 +17,7 @@ $(document).ready(function () {
 
 
     $.ajax({
-        url: query,
+        url:proxyUrl + query,
         method: "GET"
     }).then(function (response) {
         home = response.game.home;

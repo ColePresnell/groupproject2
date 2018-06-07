@@ -25,6 +25,7 @@ footer{
   width:960px;
   padding: 60px;
   
+  
 }
 
 .jumbotron{
@@ -72,4 +73,8 @@ form{
 
 #footerText {
   padding:5px;
+}
+
+#info{
+  background-color: white
 }
