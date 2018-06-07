@@ -22,14 +22,14 @@ $(document).ready(function () {
         away = response.game.away;
 
         var homediv = $("<div>");
-        homediv.append("Team:  " + home.abbr + " Win: " + home.win + " Loss: " + home.loss);
+        homediv.append("Team:  " + home.abbr + " Win: " + home.win + " Losses: " + home.loss);
         homediv.append("Name:  " + home.probable_pitcher.first_name + "  " + home.probable_pitcher.last_name);
-        homediv.append("win:  " + home.probable_pitcher.win + " lose:  " + home.probable_pitcher.lose + " era:  " + home.probable_pitcher.era);
+        homediv.append("win:  " + home.probable_pitcher.win + " Losses:  " + home.probable_pitcher.loss + " era:  " + home.probable_pitcher.era);
 
         var awaydiv = $("<div>");
-        awaydiv.append("Team: " + away.abbr + " Win: " + away.win + " Loss: " + away.loss);
+        awaydiv.append("Team: " + away.abbr + " Win: " + away.win + " Losses: " + away.loss);
         awaydiv.append("Name:  " + away.probable_pitcher.first_name + "  " + away.probable_pitcher.last_name);
-        awaydiv.append("win:  " + away.probable_pitcher.win + " lose:  " + away.probable_pitcher.lose + " era:  " + away.probable_pitcher.era);
+        awaydiv.append("win:  " + away.probable_pitcher.win + " Losses:  " + away.probable_pitcher.loss + " era:  " + away.probable_pitcher.era);
 
 
 
@@ -38,15 +38,6 @@ $(document).ready(function () {
 
 
         //---- questions ------//
-
-        var questionDiv = $("<div>");
-        var select = $("<select>");
-
-        var option = $("<option>");
-        option.innerHTML = team.h;
-        var option2 = $("<option>")
-        option2.innerHTML = team.a;
-
         var team = {
             h: home.abbr, //home team name
             a: away.abbr //away team nmae
@@ -55,6 +46,15 @@ $(document).ready(function () {
             h: home.probable_pitcher.preferred_name,
             a: away.probable_pitcher.preferred_name
         };
+        var questionDiv = $("<div>");
+        var select = $("<select>");
+
+        var option = $("<option>");
+        option.innerHTML = team.h;
+        var option2 = $("<option>")
+        option2.innerHTML = team.a;
+
+        
 
         questionDiv.append("Who will win the game?");
         //drop down menu for home and away
