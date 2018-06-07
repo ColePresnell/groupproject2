@@ -11,7 +11,9 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/members");
     }
+    else{
     res.render("signup");
+    };
   });
 
   app.get("/login", function(req, res) {
@@ -19,7 +21,9 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/members");
     }
+    else {
     res.render("login");
+    };
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -34,4 +38,9 @@ module.exports = function(app) {
   app.get("/leaderboard", isAuthenticated, function(req, res) {
     res.render("leaderboard");
   });
+  //for bets html
+  app.get("/bets/:id", function (req, res) {
+    console.log("");
+    res.render("bets");
+  })
 };
