@@ -31,6 +31,15 @@ module.exports = function(app) {
     });
   });
 
+// test for creating table to sql
+  app.post("/api/leaderboard", function(req, res) {
+    console.log(req.body);
+    db.Results.create({
+      username: req.body.username,
+      score: req.body.score 
+    });
+  });
+
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
