@@ -79,8 +79,7 @@ module.exports = function(app) {
 
     db.Useranswers.create({
       username: currentUsername ,
-      date: Date.now(),
-      game1: JSON.stringify(req.body)
+      games: JSON.stringify(req.body)
       
     })
     

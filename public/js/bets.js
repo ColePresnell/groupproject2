@@ -186,22 +186,24 @@ $(document).ready(function () {
         };
     
 
-        console.log(answers);
+        //console.log(answers);
 
         //need to create to database to send form(answers)
         $.post("/api/bets/"+game_id, answers,
             function (data) {
 
-
+                console.log("this 1" );
                 if (data) {
+                    console.log("this 2");
                     alert("Your betting has been updated");
+                    window.location.href="http://localhost:8080/members";
                 }
 
 
                 else {
                     alert("Sorry, we have some err right now. Please try later");
                 }
-
+                // 
 
             });
 
