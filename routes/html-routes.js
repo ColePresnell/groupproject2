@@ -43,4 +43,8 @@ module.exports = function(app) {
     console.log("");
     res.render("bets");
   })
+
+  app.get("/scoring", isAuthenticated, function(req, res) {
+    res.render("scoring");
+  });
 };

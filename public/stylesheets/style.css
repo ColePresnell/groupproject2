@@ -16,7 +16,7 @@ footer{
   text-align: center;
   background-color: rgb(46,51,56);
   color:white;
-  position:absolute;
+  position:fixed;
    bottom:0;
    width:100%;
 }
@@ -24,6 +24,7 @@ footer{
 #overallContain{
   width:960px;
   padding: 60px;
+  
   
 }
 
@@ -72,4 +73,8 @@ form{
 
 #footerText {
   padding:5px;
+}
+
+#info{
+  background-color: white
 }

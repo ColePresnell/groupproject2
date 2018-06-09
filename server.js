@@ -5,6 +5,7 @@ var session = require("express-session");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 var exphbs = require("express-handlebars");
+
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
@@ -19,9 +20,10 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.set('views', './views');
+// For handlebars
+app.set('views', './views')
 app.engine('handlebars', exphbs({defaultLayout: "main"}));
-app.set("view engine", ".handlebars");
+app.set('view engine', '.handlebars');
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);
@@ -32,8 +34,5 @@ db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
-  // db.Results.create({ username: "Bob", score: 20}).then(function(dbResponse) {console.log("Bob added")});
-  // db.Results.create({ username: "Vicky", score: 23}).then(function(dbResponse) {console.log("Vicky added")});
-  // db.Results.create({ username: "William", score: 15}).then(function(dbResponse) {console.log("William added")});
-  // db.Results.create({ username: "Elizabeth", score: 22}).then(function(dbResponse) {console.log("Elizabeth added")});
+
 });
