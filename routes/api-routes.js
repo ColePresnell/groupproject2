@@ -1,7 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
-
+var currentUsername;
 module.exports = function(app) {
 
   var sequelize = require("sequelize");
@@ -42,6 +42,8 @@ module.exports = function(app) {
 
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
+    
+
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -49,9 +51,12 @@ module.exports = function(app) {
     else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
+      currentUsername =req.user.username;
+
       res.json({
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
+        username: req.user.username
       });
     }
   });
@@ -60,12 +65,36 @@ module.exports = function(app) {
     db.Results.findAll({
       order: [["score", "DESC"]]
     }).then(function(data) {
-      console.log(data);
+      //console.log(data);
       res.json(data);
     }).catch(function(err) {
       console.log(err);
       res.json(err);
     })
   })
+
+  app.post("/api/bets/:gameid", function(req, res) {
+    console.log(req.params);
+    console.log("answers: ",req.body);
+
+    db.Useranswers.create({
+      username: currentUsername,
+      date: Date.now(),
+      game1: JSON.stringify(req.body)
+      
+    })
+    
+    // .then(function() {
+    //   res.redirect(307, "/api/login");
+    // })
+    
+    .catch(function(err) {
+      console.log(err);
+      res.json(err);
+      // res.status(422).json(err.errors[0].message);
+    });
+
+
+  });
 
 };
