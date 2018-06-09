@@ -51,7 +51,7 @@ module.exports = function(app) {
     else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
-      currentUsername =req.user.username;
+      currentUsername = req.user.username;
 
       res.json({
         email: req.user.email,
@@ -78,7 +78,7 @@ module.exports = function(app) {
     console.log("answers: ",req.body);
 
     db.Useranswers.create({
-      username: currentUsername,
+      username: currentUsername ,
       date: Date.now(),
       game1: JSON.stringify(req.body)
       

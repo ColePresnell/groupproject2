@@ -26,11 +26,11 @@
       </tr>
     </thead>
     <tbody>
-      {{#each results}}
+      {{#each Results}}
       <tr>
         <th scope="row">1</th>
-        <td>{{username}}</td>
-        <td>{{score}}</td>
+        <td>{{this.username}}</td>
+        <td>{{this.score}}</td>
       </tr>
       <tr>
         <th scope="row">2</th>
@@ -43,7 +43,7 @@
         <td>@fat</td>
       </tr>
 
-
+    {{/each}}
     </tbody>
   </table>
 
