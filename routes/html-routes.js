@@ -37,6 +37,7 @@ module.exports = function(app) {
   });
   app.get("/leaderboard", isAuthenticated, function(req, res) {
     res.render("leaderboard");
+    console.log("HI THERE");
   });
   //for bets html
   app.get("/bets/:id", function (req, res) {
@@ -48,3 +49,9 @@ module.exports = function(app) {
     res.render("scoring");
   });
 };
+
+// trying to populate leaderboard on page
+
+// app.get("/leaderboard", function (req, res) {
+
+// })

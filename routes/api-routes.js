@@ -65,13 +65,14 @@ module.exports = function(app) {
     db.Results.findAll({
       order: [["score", "DESC"]]
     }).then(function(data) {
-      //console.log(data);
+      console.log(data);
+      console.log("HELLO");
       res.json(data);
     }).catch(function(err) {
       console.log(err);
       res.json(err);
-    })
-  })
+    });
+  });
 
   app.post("/api/bets/:gameid", function(req, res) {
     console.log(req.params);
