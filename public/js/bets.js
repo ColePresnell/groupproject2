@@ -102,7 +102,7 @@ $(document).ready(function () {
 
         //Question 3 
         var textq3 = $("<p>");
-        textq3.text("How many innings will " + pitcher.a + " play in today's game?");
+        textq3.text("How many hits will " + team.a + " have in todays game?");
         $(".q3").append(textq3);
 
 
