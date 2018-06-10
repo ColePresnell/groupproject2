@@ -43,7 +43,7 @@ module.exports = function(app) {
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
     
-
+   
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -63,7 +63,9 @@ module.exports = function(app) {
 
   app.get("/api/leaderboard", function(req, res) {
     db.Results.findAll({
-      order: [["score", "DESC"]]
+      order: [["score", "DESC"]],
+      results: data
+
     }).then(function(data) {
       //console.log(data);
       res.json(data);
@@ -95,5 +97,20 @@ module.exports = function(app) {
 
 
   });
+  
+
+
+  app.get("/api/answersKey", function(req, res) {
+    db.Useranswers.findAll({
+      
+    }).then(function(data) {
+      //console.log(data);
+      res.json(data);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+    })
+  })
+  
 
 };

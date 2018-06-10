@@ -1,6 +1,6 @@
 // Requiring path to so we can use relative routes to our HTML files
 var path = require("path");
-
+var db = require("../models");
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
@@ -36,15 +36,31 @@ module.exports = function(app) {
     res.render("games");
   });
   app.get("/leaderboard", isAuthenticated, function(req, res) {
-    res.render("leaderboard");
+    
+    db.Results.findAll({
+      order: [["score", "DESC"]],
+      
+
+    }).then(function(data) {
+      //this was added for handlebars to work on leaderboard to display results
+      var hbsObject ={
+        results:data
+      };
+      console.log(hbsObject);
+    
+    
+
+
+    res.render("leaderboard",hbsObject);
+    });
   });
   //for bets html
   app.get("/bets/:id", function (req, res) {
     console.log("");
     res.render("bets");
-  })
+  });
 
   app.get("/scoring", isAuthenticated, function(req, res) {
     res.render("scoring");
   });
-};
+}

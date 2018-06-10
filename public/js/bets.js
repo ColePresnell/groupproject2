@@ -24,12 +24,12 @@ $(document).ready(function () {
         var homediv = $("<div>");
         homediv.append("Team:  " + home.abbr + " Win: " + home.win + " Loss: " + home.loss);
         homediv.append("Name:  " + home.probable_pitcher.first_name + "  " + home.probable_pitcher.last_name);
-        homediv.append("win:  " + home.probable_pitcher.win + " lose:  " + home.probable_pitcher.lose + " era:  " + home.probable_pitcher.era);
+        homediv.append(" Win:  " + home.probable_pitcher.win + " lose:  " + home.probable_pitcher.loss + " era:  " + home.probable_pitcher.era);
 
         var awaydiv = $("<div>");
-        awaydiv.append("Team: " + away.abbr + " Win: " + away.win + " Loss: " + away.loss);
+        awaydiv.append("Team: " + away.abbr + " Win: " + away.win + " Losses: " + away.loss);
         awaydiv.append("Name:  " + away.probable_pitcher.first_name + "  " + away.probable_pitcher.last_name);
-        awaydiv.append("win:  " + away.probable_pitcher.win + " lose:  " + away.probable_pitcher.lose + " era:  " + away.probable_pitcher.era);
+        awaydiv.append(" Win:  " + away.probable_pitcher.win + " Losses:  " + away.probable_pitcher.loss + " era:  " + away.probable_pitcher.era);
 
 
 
@@ -112,7 +112,7 @@ $(document).ready(function () {
         //var optionQ3 = $("<option>" + i + "</option>");
 
         for (var i = 1; i < 10; i++) {
-            var optionQ3 = $("<option value='" + i + "'>" + i + " inning(s)." + "</option>");
+            var optionQ3 = $("<option value='" + i + "'>" + i + "</option>");
             selectQ3.append(optionQ3);
             // $(".qq" +  i).attr("value", i);
             // optionQ3.append(i);
@@ -170,7 +170,7 @@ $(document).ready(function () {
 
     });
 
-
+    console.log("finish loading")
     $(".submit").on("click", function (event) {
         event.preventDefault();
         var answers = {
@@ -187,12 +187,12 @@ $(document).ready(function () {
     
 
         //console.log(answers);
-
+        console.log("going to post route")
         //need to create to database to send form(answers)
         $.post("/api/bets/"+game_id, answers,
             function (data) {
 
-                console.log("this 1" );
+                console.log("this 1");
                 if (data) {
                     console.log("this 2");
                     alert("Your betting has been updated");
