@@ -1,35 +1,35 @@
 // this will not show anywhere as it is being run on client side
-$(document).ready(function () {
- 
+
+$(document).ready(function() {
 
    
  // Code to get the users answers from database and get ready to be compared 
  var winningTeam;
- //console.log(winningTeam);
+ console.log(winningTeam);
  var homePitcher5SOs;
- //console.log(homePitcher5SOs);
+ console.log(homePitcher5SOs);
  var awayTeamHits;
- //console.log(awayTeamHits);
+ console.log(awayTeamHits);
  var homeTeam7runs; 
- //console.log(homeTeam7runs);
+ console.log(homeTeam7runs);
  var awayTeam2Errors; 
- //console.log(awayTeam2Errors);
+ console.log(awayTeam2Errors);
 // user answers 
  var gameIdNeededToCompareNoParen;
- //console.log(gameIdNeededToCompareNoParen);
+ console.log(gameIdNeededToCompareNoParen);
  var answertoQ1NoParen;
- //console.log(answertoQ1NoParen);
+ console.log(answertoQ1NoParen);
  var answertoQ2NoParen;
- //console.log(answertoQ2NoParen);
+ console.log(answertoQ2NoParen);
  var answertoQ3NoParen;
- //console.log(answertoQ3NoParen);
+ console.log(answertoQ3NoParen);
  var answertoQ4NoParen;
- //console.log(answertoQ4NoParen);
+ console.log(answertoQ4NoParen);
  var answertoQ5NoParen;
- //console.log(answertoQ5NoParen);
+ console.log(answertoQ5NoParen);
 
- 
-    $.get("/api/answersKey").then(function (data) {
+
+ $.get("/api/answersKey").then(function (data) {
         // actual results
     
         //console.log(data)
@@ -37,7 +37,8 @@ $(document).ready(function () {
         var answersToCompare = data[0].games.split(",")
         var gameIdNeededToCompare = answersToCompare[0].split(":") 
         var idToUse = gameIdNeededToCompare[1];
-        gameIdNeededToCompareNoParen = idToUse.substr(1).slice(0,-1);
+        
+       gameIdNeededToCompareNoParen = idToUse.substr(1).slice(0,-1);
         // console.log(gameIdNeededToCompareNoParen);
         //==========================================================
         // get the user answer of who won game 
@@ -73,8 +74,11 @@ $(document).ready(function () {
          answertoQ5NoParen = userAnswertoQ5.substr(1).slice(0,-2);
         //  console.log(answertoQ5NoParen);
 
-
     
+
+
+
+
         
 
         
@@ -116,15 +120,19 @@ $(document).ready(function () {
         }; 
         // get the amount of away team hits 
         
-        var awayTeamHits = response.game.away.hits;
+        awayTeamHits = response.game.away.hits;
         
         //get home team runs 
-        var homeTeam7runs =  response.game.home.runs;
+        homeTeam7runs =  response.game.home.runs;
         //get away team errors
-        var awayTeam2Errors = response.game.away.errors;
+        awayTeam2Errors = response.game.away.errors;
 
-
+        
     });
+
+
+
+
     //get pitcher stats
     var apikey = "t4mtkrmkmv68u9dx6gtbzpqa";
     
@@ -136,30 +144,34 @@ $(document).ready(function () {
  
 
 
-
+    
     $.ajax({
         url: proxyUrl2 + query2,
         method: "GET"
     }).then(function (response) {
         
-        var stats = response.game.home.players
-        for (i = 0; i <stats.length; i++){
-            var postion = response.game.home.players[i].primary_position;
-            if (postion === "SP"){
-                
-                var homePitcher5SOs = response.game.home.players[i].statistics.pitch_metrics.overall.outs.ktotal;
-                
-            }
-        }
+        setTimeout(function(){
+            var stats = response.game.home.players
+            for (i = 0; i <stats.length; i++){
+                var postion = response.game.home.players[i].primary_position;
+                if (postion === "SP"){
+                    
+                    homePitcher5SOs = response.game.home.players[i].statistics.pitch_metrics.overall.outs.ktotal;
+                    console.log("worked 2");
+                }
+            }}, 1001)
+            console.log("worked 1");
+        
 
     });
-
-
-
-
-    
-    });
-
-
 
  });
+
+});
+
+
+
+
+
+
+
