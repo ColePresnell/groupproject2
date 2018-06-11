@@ -36,6 +36,7 @@ module.exports = function(app) {
     res.render("games");
   });
   app.get("/leaderboard", isAuthenticated, function(req, res) {
+
     
     db.Results.findAll({
       order: [["score", "DESC"]],
@@ -53,6 +54,7 @@ module.exports = function(app) {
 
     res.render("leaderboard",hbsObject);
     });
+
   });
   //for bets html
   app.get("/bets/:id", function (req, res) {
@@ -64,4 +66,6 @@ module.exports = function(app) {
   app.get("/scoring", isAuthenticated, function(req, res) {
     res.render("scoring");
   });
+
 }
+

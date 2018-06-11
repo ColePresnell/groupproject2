@@ -67,13 +67,14 @@ module.exports = function(app) {
       results: data
 
     }).then(function(data) {
-      //console.log(data);
+      console.log(data);
+      console.log("HELLO");
       res.json(data);
     }).catch(function(err) {
       console.log(err);
       res.json(err);
-    })
-  })
+    });
+  });
 
   app.post("/api/bets/:gameid", function(req, res) {
     console.log(req.params);
