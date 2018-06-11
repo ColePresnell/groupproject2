@@ -147,32 +147,37 @@ $(document).ready(function() {
             
             var score = 0; 
             console.log(gameIdNeededToCompareNoParen);
-            console.log(answertoQ1NoParen);
-            console.log(answertoQ2NoParen);
-            console.log(answertoQ3NoParen);
-            console.log(answertoQ4NoParen);
-            console.log(answertoQ5NoParen);
-            console.log(winningTeam);
-            console.log(awayTeam2Errors);
-            console.log(awayTeamHits);
-            console.log(homeTeam7runs);
-            if (answertoQ1NoParen = winningTeam){
+            console.log(answertoQ1NoParen + "          Q1");
+            console.log(answertoQ2NoParen + "          Q2");
+            console.log(answertoQ3NoParen + "          Q3");
+            console.log(answertoQ4NoParen + "          Q4");
+            console.log(answertoQ5NoParen + "          Q5");
+            console.log(winningTeam + "    Q1");
+            console.log(awayTeam2Errors + "   Q5");
+            console.log(awayTeamHits + "    Q3");
+            console.log(homeTeam7runs + "    Q4");
+            if (answertoQ1NoParen === winningTeam){
                 score +=1;
             };
-            // not working currently
-            // if (answertoQ2NoParen = homePitcher5SOs ) {
-            //     score +=1;
-            // };
-            if (answertoQ3NoParen = awayTeamHits){
+            // not working currently strikout questions
+        
+            if (answertoQ3NoParen == awayTeamHits){
                 score += 1; 
             };
-            if(answertoQ4NoParen = homeTeam7runs){
+            
+            if((answertoQ4NoParen === "yes")&& (homeTeam7runs > 7)){
                 score +=1; 
             };
-            if(answertoQ5NoParen = awayTeam2Errors){
-                score +=1;
+            if((answertoQ4NoParen === "no")&& (homeTeam7runs < 7)){
+                score +=1; 
             };
-
+            if((answertoQ5NoParen === "yes" ) && (awayTeam2Errors > 2)){
+                score +=1; 
+            };
+            if((answertoQ5NoParen === "no" ) && (awayTeam2Errors < 2)){
+                score +=1; 
+            };
+            
             
             console.log("Score: " + score);
             
