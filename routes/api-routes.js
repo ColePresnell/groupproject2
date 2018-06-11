@@ -43,7 +43,7 @@ module.exports = function(app) {
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
     
-
+   
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -51,7 +51,7 @@ module.exports = function(app) {
     else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
-      currentUsername =req.user.username;
+      currentUsername = req.user.username;
 
       res.json({
         email: req.user.email,
@@ -63,7 +63,9 @@ module.exports = function(app) {
 
   app.get("/api/leaderboard", function(req, res) {
     db.Results.findAll({
-      order: [["score", "DESC"]]
+      order: [["score", "DESC"]],
+      results: data
+
     }).then(function(data) {
       console.log(data);
       console.log("HELLO");
@@ -79,15 +81,14 @@ module.exports = function(app) {
     console.log("answers: ",req.body);
 
     db.Useranswers.create({
-      username: currentUsername,
-      date: Date.now(),
-      game1: JSON.stringify(req.body)
+      username: currentUsername ,
+      games: JSON.stringify(req.body)
       
     })
     
-    // .then(function() {
-    //   res.redirect(307, "/api/login");
-    // })
+    .then(function() {
+      res.send("it worked!");
+    })
     
     .catch(function(err) {
       console.log(err);
@@ -97,5 +98,20 @@ module.exports = function(app) {
 
 
   });
+  
+
+
+  app.get("/api/answersKey", function(req, res) {
+    db.Useranswers.findAll({
+      
+    }).then(function(data) {
+      //console.log(data);
+      res.json(data);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+    })
+  })
+  
 
 };

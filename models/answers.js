@@ -3,27 +3,13 @@ module.exports = function(sequelize, DataTypes) {
 
         username: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
+            allowNull: false
+            
         }, 
-            game1: {
+            games: {
                type: DataTypes.STRING 
-            },
-            game2: {
-                type: DataTypes.STRING 
-             },
-             game3: {
-                type: DataTypes.STRING 
-             },
-             game4: {
-                type: DataTypes.STRING 
-             },
-             game5: {
-                type: DataTypes.STRING 
-             },
-             date: {
-                 type: DataTypes.DATE
-             }
+            }
+            
             
 
     });
