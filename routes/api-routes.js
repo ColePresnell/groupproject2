@@ -85,9 +85,9 @@ module.exports = function(app) {
       
     })
     
-    // .then(function() {
-    //   res.redirect(307, "/api/login");
-    // })
+    .then(function() {
+      res.send("it worked!");
+    })
     
     .catch(function(err) {
       console.log(err);

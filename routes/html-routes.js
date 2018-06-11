@@ -56,6 +56,7 @@ module.exports = function(app) {
   });
   //for bets html
   app.get("/bets/:id", function (req, res) {
+    
     console.log("");
     res.render("bets");
   });

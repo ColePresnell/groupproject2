@@ -187,23 +187,22 @@ $(document).ready(function () {
     
 
         //console.log(answers);
-        console.log("going to post route")
+        console.log("going to post route");
         //need to create to database to send form(answers)
         $.post("/api/bets/"+game_id, answers,
+            
             function (data) {
-
-                console.log("this 1");
+                console.log(data);
                 if (data) {
-                    console.log("this 2");
                     alert("Your betting has been updated");
-                    window.location.href="http://localhost:8080/members";
+                   
                 }
 
 
                 else {
                     alert("Sorry, we have some err right now. Please try later");
                 }
-                // 
+                window.location.href="http://localhost:8080/members";
 
             });
 

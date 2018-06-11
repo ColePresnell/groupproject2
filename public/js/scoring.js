@@ -1,7 +1,7 @@
 // this will not show anywhere as it is being run on client side
 
 $(document).ready(function() {
-
+    var homePitcher5SOs;
 
  // Code to get the users answers from database and get ready to be compared 
 
@@ -61,7 +61,7 @@ $(document).ready(function() {
 
     
         // get game stats 
-    var apikey = "t4mtkrmkmv68u9dx6gtbzpqa";
+    var apikey = "yqad8vjknzntzcwypycn668e";
     
     //----
     var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
@@ -133,7 +133,7 @@ $(document).ready(function() {
     }).then(function (response) {
         
         
-        setTimeout(function(){
+        
             var stats = response.game.home.players
             for (i = 0; i <stats.length; i++){
                 var postion = response.game.home.players[i].primary_position;
@@ -141,11 +141,13 @@ $(document).ready(function() {
             
                 
                 if (postion === "SP"){
-                 var homePitcher5SOs = response.game.home.players[i].statistics.pitch_metrics.overall.outs.ktotal; 
+                 homePitcher5SOs = response.game.home.players[i].statistics.pitch_metrics.overall.outs.ktotal; 
                 }
-            }}, 2000);
+            }
             
-            var score = 0; 
+            setTimeout(function(){ 
+            var score = 0;
+            console.log(homePitcher5SOs);
             console.log(gameIdNeededToCompareNoParen);
             console.log(answertoQ1NoParen + "          Q1");
             console.log(answertoQ2NoParen + "          Q2");
@@ -157,31 +159,36 @@ $(document).ready(function() {
             console.log(awayTeamHits + "    Q3");
             console.log(homeTeam7runs + "    Q4");
             if (answertoQ1NoParen === winningTeam){
-                score +=1;
+                score += 1;
             };
-            // not working currently strikout questions
-        
+            if ((answertoQ2NoParen === "yes")&&(homePitcher5SOs > 5)){
+                score += 1; 
+            };
+            if ((answertoQ2NoParen === "no")&&(homePitcher5SOs <5)){
+                score += 1; 
+            };
+            
             if (answertoQ3NoParen == awayTeamHits){
                 score += 1; 
             };
             
             if((answertoQ4NoParen === "yes")&& (homeTeam7runs > 7)){
-                score +=1; 
+                score += 1; 
             };
             if((answertoQ4NoParen === "no")&& (homeTeam7runs < 7)){
-                score +=1; 
+                score += 1; 
             };
             if((answertoQ5NoParen === "yes" ) && (awayTeam2Errors > 2)){
-                score +=1; 
+                score += 1; 
             };
             if((answertoQ5NoParen === "no" ) && (awayTeam2Errors < 2)){
-                score +=1; 
+                score += 1; 
             };
             
             
             console.log("Score: " + score);
             
-            
+        }, 3000);
             
             
     });
