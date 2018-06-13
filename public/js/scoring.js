@@ -2,6 +2,7 @@
 
 $(document).ready(function() {
     var homePitcher5SOs;
+    var score = 0; 
 
  // Code to get the users answers from database and get ready to be compared 
 
@@ -9,12 +10,17 @@ $(document).ready(function() {
 
 
  $.get("/api/answersKey").then(function (data) {
- 
-        var answersToCompare = data[0].games.split(",")
-        var gameIdNeededToCompare = answersToCompare[0].split(":") 
+ //for (i = 0; i<data; i++) {
+     console.log(data[1])
+        var answersToCompare = data[1].games.split(",")
+      
+        var gameIdNeededToCompare = answersToCompare[0].split(":") ;
+       
         var idToUse = gameIdNeededToCompare[1];
-        
+       
         gameIdNeededToCompareNoParen = idToUse.substr(1).slice(0,-1);
+        
+
         // console.log(gameIdNeededToCompareNoParen);
         //==========================================================
         // get the user answer of who won game 
@@ -61,14 +67,14 @@ $(document).ready(function() {
 
     
         // get game stats 
-    var apikey = "yqad8vjknzntzcwypycn668e";
+    var apikey = "t4mtkrmkmv68u9dx6gtbzpqa";
     
     //----
     var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     //-----
     var query = "http://api.sportradar.us/mlb/trial/v6.5/en/games/" + gameIdNeededToCompareNoParen + "/boxscore.json?api_key=" + apikey;
 
- 
+    console.log(query);
 
     var winningTeam;
     
@@ -135,18 +141,19 @@ $(document).ready(function() {
         
         
             var stats = response.game.home.players
-            for (i = 0; i <stats.length; i++){
-                var postion = response.game.home.players[i].primary_position;
+            for (j = 0; j <stats.length; j++){
+                var postion = response.game.home.players[j].primary_position;
                 
             
                 
                 if (postion === "SP"){
-                 homePitcher5SOs = response.game.home.players[i].statistics.pitch_metrics.overall.outs.ktotal; 
+                 homePitcher5SOs = response.game.home.players[j].statistics.pitch_metrics.overall.outs.ktotal; 
                 }
             }
             
             setTimeout(function(){ 
             var score = 0;
+            console.log("This score: "+ score);
             console.log(homePitcher5SOs);
             console.log(gameIdNeededToCompareNoParen);
             console.log(answertoQ1NoParen + "          Q1");
@@ -187,13 +194,26 @@ $(document).ready(function() {
             
             
             console.log("Score: " + score);
+            // var dataObj = { score: score };
+            
+            setTimeout(function(){
+            //     $.post("/api/leaderboard", scoreObj, function(response){
+            //         console.log(response);
+            //     });
+            var scoreObj = {
+                score:score * 20
+            }
+            $.post("/api/leaderboard", scoreObj, function(response){
+                console.log(response);
+            });
+            },3000);
             
         }, 3000);
             
-            
+      
     });
     
-
+ //}
  });
  
 });
