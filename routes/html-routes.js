@@ -56,6 +56,7 @@ module.exports = function (app) {
 
       res.render("leaderboard", hbsObject);
     });
+
   });
   //for bets html
 

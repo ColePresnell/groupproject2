@@ -67,7 +67,8 @@ module.exports = function(app) {
       results: req.body.score
 
     }).then(function(data) {
-      //console.log(data);
+      console.log(data);
+      console.log("HELLO");
       res.json(data);
     }).catch(function(err) {
       console.log(err);
