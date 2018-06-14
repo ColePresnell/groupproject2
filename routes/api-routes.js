@@ -182,8 +182,10 @@ module.exports = function(app) {
 
     db.Results.update(newData, {where: { username: req.body.username } }).then(function(){
       console.log("Updated score");
+      res.send("updated in server");
     }).catch(function(err){
       console.log(err);
+      res.send("there was an error");
     });
 
   }

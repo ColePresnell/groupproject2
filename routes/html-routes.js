@@ -112,7 +112,8 @@ module.exports = function (app) {
         // }
         if (gameIdArr.includes(req.params.id)) {
           console.log("here3");
-          res.send("you betted already sorry");
+
+          res.render("betAlready");
           console.log("true req.params.id is in gameIdArr");
           return;
          } 
