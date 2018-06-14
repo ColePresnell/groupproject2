@@ -138,14 +138,14 @@ module.exports = function(app) {
   app.post("/api/leaderboard", function(req, res) {
     
     db.Results.find({where :{
-      username: req.user.username,  
+      username: req.body.username,  
     } 
   }).then(function(response){
     console.log(response);
     if(!response){
       console.log("if");
     db.Results.create({
-      username: req.user.username ,
+      username: req.body.username ,
       score: req.body.score, 
       totalGame: 1
       
@@ -164,7 +164,7 @@ module.exports = function(app) {
     
     console.log(response);
     console.log(response.score);
-    console.log("user name: ", req.user.username);
+    console.log("user name: ", req.body.username);
     var score = parseInt(req.body.score);
     var previousScore = parseInt(response.score);
     console.log("current score: "+score+" previous score: "+previousScore);
@@ -179,7 +179,7 @@ module.exports = function(app) {
     }
     console.log(newData);
 
-    db.Results.update(newData, {where: { username: req.user.username } }).then(function(){
+    db.Results.update(newData, {where: { username: req.body.username } }).then(function(){
       console.log("Updated score");
     }).catch(function(err){
       console.log(err);
