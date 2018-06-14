@@ -47,7 +47,7 @@ $(document).ready(function () {
         $(this).css("display", "none");
 
         var game_id = $(this).attr("id");
-        window.location.href = "http://localhost:8080/bets/" + game_id;
+        window.location.href = "https://hidden-harbor-99196.herokuapp.com/bets/" + game_id;
 
     });
     // $("#overallContain").on("click", ".eachGame", function () {
