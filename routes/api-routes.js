@@ -140,8 +140,9 @@ module.exports = function(app) {
     db.Results.find({where :{
       username: req.body.username,  
     } 
+    
   }).then(function(response){
-    console.log(response);
+    console.log(response + "+++++++++++++++++++++++++++++++++");
     if(!response){
       console.log("if");
     db.Results.create({

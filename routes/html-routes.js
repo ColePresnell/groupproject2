@@ -85,26 +85,38 @@ module.exports = function (app) {
       
     })
       .then(function (dbResponse) {
-      
+        console.log("dbResponse");
+      console.log(dbResponse);
+      console.log("dbResponse");
         console.log("Here")
-        
+        var gameIdArr= [];
            for (i = 0; i < dbResponse.length; i++) {
              console.log("Here2")
-           var gameIdArr = dbResponse[i].games.slice(12,48);
-          console.log(gameIdArr);
-          console.log(req.params.id)
-         }
-        if (typeof gammeIdArr ==="undefined"){
-          console.log("here2.5");
-          res.render("bets");
-          return ; 
+             console.log(dbResponse);
 
-        }
+            var gameIdsToCheck = dbResponse[i].games.slice(12,48);
+            gameIdArr.push(gameIdsToCheck);
+           console.log("gameIdArr")
+          console.log(gameIdArr);
+          console.log("gameIdArr")
+          console.log("req.params.id")
+          console.log(req.params.id)
+          console.log("req.params.id")
+          
+         }
+        // if (typeof gammeIdArr === "undefined"){
+        //   console.log("here2.5");
+        //   res.render("bets");
+        //   return ; 
+
+        // }
         if (gameIdArr.includes(req.params.id)) {
           console.log("here3");
           res.send("you betted already sorry");
-          
-        } else {
+          console.log("true req.params.id is in gameIdArr");
+          return;
+         } 
+         else {
           console.log("here4")
           res.render("bets");
         }
