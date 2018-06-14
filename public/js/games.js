@@ -5,7 +5,7 @@ $(document).ready(function () {
     var apikey = "yqad8vjknzntzcwypycn668e";
     var today = new Date();
     var formateToday = moment(today).format('YYYY/MM/DD');
-    var testData = "2018/06/11";
+    //var testData = "2018/06/11";
     //-------
     var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
@@ -44,6 +44,7 @@ $(document).ready(function () {
 
     $("#overallContain").on("click", ".eachGame", function () {
         console.log("test");
+        $(this).css("display", "none");
 
         var game_id = $(this).attr("id");
         window.location.href = "http://localhost:8080/bets/" + game_id;
