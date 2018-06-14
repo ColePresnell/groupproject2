@@ -64,7 +64,7 @@ module.exports = function(app) {
   app.get("/api/leaderboard", function(req, res) {
     db.Results.findAll({
       order: [["score", "DESC"]],
-      results: data
+      results: req.body.score
 
     }).then(function(data) {
       console.log(data);
@@ -87,12 +87,12 @@ module.exports = function(app) {
     })
     
     .then(function() {
-      res.send("it worked!");
+      res.send(true);
     })
     
     .catch(function(err) {
       console.log(err);
-      res.json(err);
+      res.send(false);
       // res.status(422).json(err.errors[0].message);
     });
 
@@ -111,7 +111,91 @@ module.exports = function(app) {
       console.log(err);
       res.json(err);
     })
-  })
+  });
+  
+// post route to score table
+// app.post("/api/leaderboard", function(req, res) {
+//   console.log(req.body.score);
+
+//   db.Results.create({
+//     username: currentUsername ,
+//     score: req.body.score
+//     t
+    
+    
+    
+//   })
+  
+  // .then(function() {
+  //   res.send(true);
+  // })
+  
+  // .catch(function(err) {
+  //   console.log(err);
+  //   res.send(false);
+    // res.status(422).json(err.errors[0].message);
+  // });
+  app.post("/api/leaderboard", function(req, res) {
+    
+    db.Results.find({where :{
+      username: req.body.username,  
+    } 
+  }).then(function(response){
+    console.log(response);
+    if(!response){
+      console.log("if");
+    db.Results.create({
+      username: req.body.username ,
+      score: req.body.score, 
+      totalGame: 1
+      
+      
+    }).then(function() {
+      res.send(true);
+    })
+    
+    .catch(function(err) {
+      console.log(err);
+      res.send(false);
+      // res.status(422).json(err.errors[0].message);
+    });
+  } // if statment  
+  else { 
+    
+    console.log(response);
+    console.log(response.score);
+    console.log("user name: ", req.body.username);
+    var score = parseInt(req.body.score);
+    var previousScore = parseInt(response.score);
+    console.log("current score: "+score+" previous score: "+previousScore);
+    var percent = (score +previousScore ) / (response.totalGame+1)
+    
+
+
+    const newData = {  
+   
+      score:percent, 
+      totalGame: response.totalGame+1
+    }
+    console.log(newData);
+
+    db.Results.update(newData, {where: { username: req.body.username } }).then(function(){
+      console.log("Updated score");
+    }).catch(function(err){
+      console.log(err);
+    });
+
+  }
+  }).catch(function(err){
+    console.log(err);
+  });
+
+  
+  
+  
+  });
   
 
 };
+
+
