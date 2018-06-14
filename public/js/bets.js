@@ -171,7 +171,7 @@ $(document).ready(function () {
     });
 
     console.log("finish loading")
-    $(".submit").on("click", function (event) {
+    $(".button").on("click", function (event) {
         event.preventDefault();
         var answers = {
             game_id: game_id,
@@ -194,8 +194,7 @@ $(document).ready(function () {
             function (data) {
                 console.log(data);
                 if (data) {
-                    alert("Your betting has been updated");
-                   
+                    
                 }
 
 
@@ -211,3 +210,5 @@ $(document).ready(function () {
 
 
 }); 
+
+    
