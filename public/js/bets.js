@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var apikey = "yqad8vjknzntzcwypycn668e";
+    var apikey = "xksqy5yzud2g255rumfjf5ga";
 
     var pathname = window.location.pathname;
     var splittingPathname = pathname.split('/');
@@ -215,7 +215,7 @@ $(document).ready(function () {
     $("#close-btn").on("click", function (event) {
         event.preventDefault();
         $("#exampleModal").modal("hide")
-        // window.location.href="http://localhost:8080/members";
+        //window.location.href="http://localhost:8080/members";
         window.location.href="https://hidden-harbor-99196.herokuapp.com/members";
     })
 

@@ -146,7 +146,8 @@ form{
   margin-top:30px;
   font-size: 18px;
   color:white;
-  width: auto
+  width: auto;
+  margin-bottom:10px
   
 }
 
@@ -255,17 +256,22 @@ button:active {
 
 }
 
-form.answersForm{
+.q1,.q2,.q3,.q4,.q5{
   background: #fff;
-  width: 960px;
-  padding:10px;
-  margin: auto;
-  margin-top: 40px;
+  width: 60%;
+  margin-left:20%;
+  padding:5px;
+  
+  
   background-color: rgba(18, 61, 189, 0.712);;
-  color:white
+  color:white;
+  border-radius:10px;
 }
 .submit{
-  margin-top:10px;
+  
+  width: 60%;
+  margin-left:20%;
+  padding:5px;
 }
 
 img{

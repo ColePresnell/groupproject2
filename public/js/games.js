@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     
 
-    var apikey = "yqad8vjknzntzcwypycn668e";
+    var apikey = "xksqy5yzud2g255rumfjf5ga";
     var today = new Date();
     var formateToday = moment(today).format('YYYY/MM/DD');
     //var testData = "2018/06/11";
@@ -51,7 +51,7 @@ $(document).ready(function () {
         var game_id = $(this).attr("id");
         window.location.href = "https://hidden-harbor-99196.herokuapp.com/bets/" + game_id;
        //for local host
-    //    window.location.href="http://localhost:8080/bets/"+game_id;
+        //window.location.href="http://localhost:8080/bets/"+game_id;
 
     });
     // $("#overallContain").on("click", ".eachGame", function () {
@@ -61,7 +61,7 @@ $(document).ready(function () {
 
 
 
-    // window.location.href="http://localhost:8080/bets/"+game_id;
+    //window.location.href="http://localhost:8080/bets/"+game_id;
 
     // $.get(proxyUrl+"http://api.sportradar.us/mlb/trial/v6.5/en/games/" + game_id + "/boxscore.json?api_key=" + apikey, function(req, res ){
     //     console.log(response);
