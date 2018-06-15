@@ -3,7 +3,7 @@ var db = require("../models");
 var passport = require("../config/passport");
 var currentUsername;
 module.exports = function(app) {
-
+var d = 0;
   var sequelize = require("sequelize");
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -136,7 +136,15 @@ module.exports = function(app) {
     // res.status(422).json(err.errors[0].message);
   // });
   app.post("/api/leaderboard", function(req, res) {
-    
+    if(d ==0 ){
+      db.Results.destroy({
+        where: {},
+        truncate: true
+      }).then(function(response){
+        res.send("reset table");
+        d++;
+      })
+    }
     db.Results.find({where :{
       username: req.body.username,  
     } 

@@ -54,7 +54,7 @@ $(document).ready(function () {
         console.log("i equals " + i);
         var user = betsUserAnswer();
         //team information
-        var apikey = "yqad8vjknzntzcwypycn668e";
+        var apikey = "xksqy5yzud2g255rumfjf5ga";
         var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
         var query = "http://api.sportradar.us/mlb/trial/v6.5/en/games/" + user.gameId + "/boxscore.json?api_key=" + apikey;
 

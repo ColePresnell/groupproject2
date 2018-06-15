@@ -200,7 +200,7 @@ $(document).ready(function () {
                    $("#exampleModal").modal("modal");
                    window.location.href="https://hidden-harbor-99196.herokuapp.com/members";
                 //localhost
-                // window.location.href="http://localhost:8080/members/";
+                 //window.location.href="http://localhost:8080/members/";
                 }
 
 
