@@ -145,7 +145,8 @@ $(document).ready(function () {
         if ((user.Q5 == "no") && ( response.game.away.errors < 2)) {
             score += 1;
         };
-
+        console.log("username: ",dataInfo[i].username); 
+        console.log("score: ", score);
         var scoreObj = {
             username: dataInfo[i].username,
             score: score * 20
