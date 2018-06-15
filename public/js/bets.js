@@ -201,7 +201,7 @@ $(document).ready(function () {
                 else {
                     alert("Sorry, we have some err right now. Please try later");
                 }
-                window.location.href="http://localhost:8080/members";
+                window.location.href="https://hidden-harbor-99196.herokuapp.com/members";
 
             });
 
