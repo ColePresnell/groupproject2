@@ -198,9 +198,9 @@ $(document).ready(function () {
                 console.log(data);
                 if (data) {
                    $("#exampleModal").modal("modal");
-                   //window.location.href="https://hidden-harbor-99196.herokuapp.com/members";
+                   window.location.href="https://hidden-harbor-99196.herokuapp.com/members";
                 //localhost
-                 window.location.href="http://localhost:8080/members/";
+                 //window.location.href="http://localhost:8080/members/";
                 }
 
 
@@ -215,8 +215,8 @@ $(document).ready(function () {
     $("#close-btn").on("click", function (event) {
         event.preventDefault();
         $("#exampleModal").modal("hide")
-        window.location.href="http://localhost:8080/members";
-        //window.location.href="https://hidden-harbor-99196.herokuapp.com/members";
+       // window.location.href="http://localhost:8080/members";
+        window.location.href="https://hidden-harbor-99196.herokuapp.com/members";
     })
 
 }); 
