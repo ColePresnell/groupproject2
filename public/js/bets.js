@@ -174,7 +174,7 @@ $(document).ready(function () {
     });
 
     console.log("finish loading")
-    $(".submit").on("click", function (event) {
+    $(".button").on("click", function (event) {
         event.preventDefault();
         var answers = {
             game_id: game_id,
@@ -197,10 +197,12 @@ $(document).ready(function () {
             function (data) {
                 console.log(data);
                 if (data) {
+
                    $("#exampleModal").modal("modal");
                    window.location.href="https://hidden-harbor-99196.herokuapp.com/members";
                 //localhost
                  //window.location.href="http://localhost:8080/members/";
+
                 }
 
 
@@ -220,3 +222,5 @@ $(document).ready(function () {
     })
 
 }); 
+
+    
