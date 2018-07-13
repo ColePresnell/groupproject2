@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var apikey = "yqad8vjknzntzcwypycn668e";
+    var apikey = "xksqy5yzud2g255rumfjf5ga";
 
     var pathname = window.location.pathname;
     var splittingPathname = pathname.split('/');
@@ -13,20 +13,23 @@ $(document).ready(function () {
 
 
 
-
+    
     $.ajax({
         url: query,
         method: "GET"
     }).then(function (response) {
+        $('.loader').hide();
         home = response.game.home;
         away = response.game.away;
 
         var homediv = $("<div>");
+       
         homediv.append("Team:  " + home.abbr + " Win: " + home.win + " Loss: " + home.loss);
         homediv.append("Name:  " + home.probable_pitcher.first_name + "  " + home.probable_pitcher.last_name);
         homediv.append(" Win:  " + home.probable_pitcher.win + " lose:  " + home.probable_pitcher.loss + " era:  " + home.probable_pitcher.era);
 
         var awaydiv = $("<div>");
+   
         awaydiv.append("Team: " + away.abbr + " Win: " + away.win + " Losses: " + away.loss);
         awaydiv.append("Name:  " + away.probable_pitcher.first_name + "  " + away.probable_pitcher.last_name);
         awaydiv.append(" Win:  " + away.probable_pitcher.win + " Losses:  " + away.probable_pitcher.loss + " era:  " + away.probable_pitcher.era);
@@ -194,20 +197,29 @@ $(document).ready(function () {
             function (data) {
                 console.log(data);
                 if (data) {
-                    
+
+                   $("#exampleModal").modal("modal");
+                   window.location.href="https://hidden-harbor-99196.herokuapp.com/members";
+                //localhost
+                 //window.location.href="http://localhost:8080/members/";
+
                 }
 
 
                 else {
-                    alert("Sorry, we have some err right now. Please try later");
+                    console.log("error placing bet"); 
                 }
-                window.location.href="https://hidden-harbor-99196.herokuapp.com/members";
-
+               
             });
 
     });
 
-
+    $("#close-btn").on("click", function (event) {
+        event.preventDefault();
+        $("#exampleModal").modal("hide")
+       // window.location.href="http://localhost:8080/members";
+        window.location.href="https://hidden-harbor-99196.herokuapp.com/members";
+    })
 
 }); 
 

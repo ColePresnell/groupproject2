@@ -4,8 +4,8 @@ $(document).ready(function() {
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
   var usernameInput = $("input#username-input");
-  passwordInput.val("test1234");
-  emailInput.val("test@gmail.com");
+  // passwordInput.val("test1234");
+  // emailInput.val("test@gmail.com");
 
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", function(event) {
